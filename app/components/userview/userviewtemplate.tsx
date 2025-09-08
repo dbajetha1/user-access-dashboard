@@ -48,7 +48,7 @@
 // }
 "use client";
 import { useState } from "react";
-import { User } from "../types";
+import { User } from "../../types";
 
 export default function Userview({ user }: { user: User }) {
   const accessCounts = {
