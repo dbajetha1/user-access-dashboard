@@ -1,5 +1,5 @@
-import Usertemplate from "@/app/components/userviewtemplate"
-import { User } from "../types";
+import Usertemplate from "./userviewtemplate"
+import { User } from "../../types";
 async function getUserByEmail(email: string): Promise<User | null> {
   if (!email) return null;
   console.log("Fetching data for email:", email); 
