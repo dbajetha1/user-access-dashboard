@@ -10,28 +10,26 @@ export default function Graph() {
 
     const config: NeovisConfig = {
       containerId: visRef.current.id,
-      neo4j:{
+      neo4j: {
         serverUrl: "neo4j://127.0.0.1:7687", // Or neo4j+s:// for Aura
         serverUser: "neo4j",
         serverPassword: "root1234",
       },
       labels: {
         Application: {
-          label: "appName", // show appname inside node
-          // size: "appName",         // size nodes based on numeric // group/color by linkurl
+          label: "appName", // show appName inside node
         },
         User: {
-          label: "firstName", // show firstname inside node
-          // size: "email",           // size nodes based on numeric id
+          label: "firstName", // show firstName inside node
         },
       },
       relationships: {
         USES: {
-          // caption: true, // show the relationship type (label on edge)
-          // width: "5", // thickness of the edge
-          color: "red",  // color of the edge
+          label: "USES", // show the relationship type on edge
+          width: "1", // edge thickness
+          color: { color: "red" }, // edge color
           arrows: {
-            to: "true",    // show arrow pointing to target node
+            to: "to", // arrow pointing to target node
           },
         },
       },
@@ -44,11 +42,6 @@ export default function Graph() {
 
     const viz = new NeoVis(config);
     viz.render();
-
-    // Example: reload after 5s with new query
-    // setTimeout(() => {
-    //   viz.renderWithCypher("MATCH (n)-[r]->(m) RETURN n,r,m LIMIT 10");
-    // }, 5000);
   }, []);
 
   return (
